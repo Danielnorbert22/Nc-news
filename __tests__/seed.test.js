@@ -7,7 +7,7 @@ afterAll(() => db.end());
 
 describe("seed", () => {
   describe("topics table", () => {
-    test.only("topics table exists", () => {
+    test("topics table exists", () => {
       return db
         .query(
           `SELECT EXISTS (

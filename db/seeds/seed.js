@@ -1,5 +1,6 @@
 const db = require("../connection");
 const format = require("pg-format");
+const { convertTimestampToDate, createLookUpObj } = require("../seeds/utils");
 
 function seed({ topicData, userData, articleData, commentData }) {
   return db
@@ -15,12 +16,12 @@ function seed({ topicData, userData, articleData, commentData }) {
     })
     .then(() => {
       return db.query(
-        `CREATE TABLE users(username VARCHAR(320) PRIMARY KEY, name VARCHAR(120), avatar_url VARCHAR(1200))`
+        `CREATE TABLE users(username VARCHAR(320) PRIMARY KEY, name VARCHAR(120), avatar_url VARCHAR(1000))`
       );
     })
     .then(() => {
       return db.query(
-        `CREATE TABLE topics(description VARCHAR(3255), slug VARCHAR(255) PRIMARY KEY, img_url VARCHAR(1200))`
+        `CREATE TABLE topics(description VARCHAR(3255), slug VARCHAR(255) PRIMARY KEY, img_url VARCHAR(1000))`
       );
     })
     .then(() => {
@@ -31,8 +32,8 @@ function seed({ topicData, userData, articleData, commentData }) {
               
               author VARCHAR(1000),
              
-              body VARCHAR(255),
-              created_at INT,
+              body TEXT,
+              created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
               votes INT DEFAULT 0,
               article_img_url VARCHAR(1000),
               FOREIGN KEY (topic) REFERENCES topics(slug),
@@ -42,13 +43,11 @@ function seed({ topicData, userData, articleData, commentData }) {
     .then(() => {
       return db.query(`CREATE TABLE comments(
         comment_id SERIAL PRIMARY KEY,
-        article_id INT,
-        FOREIGN KEY (article_id) REFERENCES articles(article_id),
-        body VARCHAR(255),
-        votes INT,
-        author VARCHAR(200),
-        FOREIGN KEY (author) REFERENCES users(username),
-        created_at INT
+        article_id INT REFERENCES articles(article_id),
+        body TEXT,
+        votes INT DEFAULT 0,
+        author VARCHAR(200) REFERENCES users(username),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )`);
     })
     .then(() => {
@@ -64,19 +63,67 @@ function seed({ topicData, userData, articleData, commentData }) {
       );
       return db.query(sqlString1);
     })
-    .then(({ rows }) => {
+    .then(() => {
       const formattedTopicsData = topicData.map(
         ({ description, slug, img_url }) => {
           return [description, slug, img_url];
         }
       );
-      console.log(formattedTopicsData);
 
       const sqlString2 = format(
         `INSERT INTO topics(description, slug, img_url) VALUES %L RETURNING *`,
         formattedTopicsData
       );
       return db.query(sqlString2);
+    })
+    .then(() => {
+      const formattedArticleData = articleData.map(
+        ({
+          title,
+          topic,
+          author,
+          body,
+          created_at,
+          votes,
+          article_img_url,
+        }) => {
+          const newDate = convertTimestampToDate({ created_at });
+
+          return [
+            title,
+            topic,
+            author,
+            body,
+            newDate.created_at,
+            votes,
+            article_img_url,
+          ];
+        }
+      );
+
+      const sqlString3 = format(
+        `INSERT INTO articles(title, topic, author, body, created_at, votes, article_img_url) VALUES %L RETURNING *`,
+        formattedArticleData
+      );
+      return db.query(sqlString3);
+    })
+    .then(({ rows }) => {
+      const key = "title";
+      const value = "article_id";
+      const lookUpObj = createLookUpObj(rows, key, value);
+
+      const formattedCommentData = commentData.map((comment) => {
+        const { article_title, body, votes, author, created_at } = comment;
+        const article_id = lookUpObj[article_title];
+        const newDate = convertTimestampToDate({ created_at });
+        return [article_id, body, votes, author, newDate.created_at];
+      });
+
+      const sqlString4 = format(
+        `INSERT INTO comments(article_id, body, votes, author, created_at) VALUES %L RETURNING *`,
+        formattedCommentData
+      );
+      return db.query(sqlString4);
     });
 }
 module.exports = seed;
