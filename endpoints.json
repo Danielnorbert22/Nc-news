@@ -10,7 +10,7 @@
     }
   },
   "GET /api/articles": {
-    "description": "serves an array of all articles",
+    "description": "serves an array of all articles and its properties with an added property counting the ammount of comments  in descending order based on date created",
     "exampleResponse": {
       "articles": [
         {
@@ -22,6 +22,18 @@
           "comment_count": 6
         }
       ]
+    }
+  },
+  "GET /api/users": {
+    "description": "serves an object with the key of users and the value of an array of objects. Each object should have the properties: username name and avatar_url",
+    "exampleResponse": {
+      "users":[
+        { 
+          "username": "icellusedkars",
+          "name": "sam",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/24604688?s=460&v=4"
+          }
+        ]
     }
   }
 }

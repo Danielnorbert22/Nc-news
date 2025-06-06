@@ -5,5 +5,6 @@ const selectTopics = () => {
     .query("SELECT slug, description FROM topics;")
     .then(({ rows }) => rows);
 };
-
-module.exports = { selectTopics };
+module.exports = {
+  selectTopics,
+};
