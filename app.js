@@ -3,6 +3,10 @@ const app = express();
 const db = require("./db/connection.js");
 
 const {
+  selectCommentById,
+} = require("./controllers/select_comment_controller.js");
+const {
+  postVotesToArticles,
   selectArticles,
   selectArticleById,
 } = require("./controllers/select_article_controllers.js");
@@ -33,4 +37,7 @@ app.get("/api/users", selectUsers);
 
 app.get("/api/articles/:article_id", selectArticleById);
 
+app.get("/api/articles/:article_id/comments", selectCommentById);
+
+app.patch("/api/articles/:article_id", postVotesToArticles);
 module.exports = app;

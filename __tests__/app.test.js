@@ -97,3 +97,59 @@ describe("GET /api/articles/:articles_id", () => {
       });
   });
 });
+
+describe("GET /api/articles/:articles_id/comments", () => {
+  test("responds with comments from an article by id", () => {
+    return request(app)
+      .get("/api/articles/3/comments")
+      .expect(200)
+      .then((response) => {
+        expect(response.body).toHaveProperty("comments");
+        expect(Array.isArray(response.body.comments)).toBe(true);
+      });
+  });
+});
+
+describe.only("PATCH /api/articles/:article_id", () => {
+  test("200: increment votes by positive number", () => {
+    return request(app)
+      .patch("/api/articles/3")
+      .send({ inc_votes: 10 })
+      .expect(200)
+      .then((response) => {
+        console.log("Response Body:", response.body);
+        expect(response.body.article).toHaveProperty("votes");
+        expect(response.body.article.votes).toEqual(10);
+      });
+  });
+
+  test("200: decrement votes by negative number", () => {
+    return seed(data)
+      .then(() => request(app).get("/api/articles/3"))
+      .then((preResponse) => {
+        const initialVotes = preResponse.body.article.votes;
+        return request(app)
+          .patch("/api/articles/3")
+          .send({ inc_votes: -5 })
+          .expect(200)
+          .then((response) => {
+            expect(response.body).toHaveProperty("article");
+            expect(response.body.article).toHaveProperty("votes");
+            expect(response.body.article.votes).toBe(initialVotes - 5);
+          });
+      });
+  });
+  test("400: invalid inc_votes (not a number)", () => {
+    return request(app)
+      .patch("/api/articles/3")
+      .send({ inc_votes: "not-a-number" })
+      .expect(400);
+  });
+
+  test("404: article not found", () => {
+    return request(app)
+      .patch("/api/articles/999999")
+      .send({ inc_votes: 1 })
+      .expect(404);
+  });
+});

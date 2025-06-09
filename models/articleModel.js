@@ -27,4 +27,14 @@ const fetchArticles = () => {
   });
 };
 
-module.exports = { fetchArticleById, fetchArticles };
+const incVotes = async (article_id, inc_votes) => {
+  const result = await db.query(
+    `UPDATE articles SET votes = votes + $1 WHERE articles.article_id = $2 RETURNING *`,
+    [inc_votes, article_id]
+  );
+  const { rows } = result;
+
+  return rows;
+};
+
+module.exports = { incVotes, fetchArticleById, fetchArticles };
