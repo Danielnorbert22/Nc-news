@@ -1,0 +1,59 @@
+ body {
+    background-color: black;
+    color: aliceblue;
+    font-family: "agdasima", sans-serif;
+ }
+
+    header {
+        text-align: center;
+        border-radius: 90px;
+        color: aqua;
+        
+
+    }
+
+    nav {
+        color: aliceblue;
+        background: radial-gradient(circle,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+        text-align: center;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        border-radius: 20px;
+        list-style: none;
+        position: -webkit-sticky;
+        position: sticky;
+
+    }
+
+    li  {
+        
+        display: inline-block;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        
+
+    }
+
+    li :hover {
+        color: crimson;
+    }
+
+    .endpoint {
+        border-radius: 20px;
+        border: solid aqua 2px;
+        margin: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        color: aqua;
+        text-align: center;
+      }
+      .description {
+        font-size:20px ;
+        transition: 1s;
+
+  
+   }
+

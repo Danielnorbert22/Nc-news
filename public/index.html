@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
+    <title>My Api Endpointst</title>
+</head>
+<body>
+    <header>
+        <h1>My Api Endpoints</h1>
+    </header>
+    <nav>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Topics</a></li>
+        <li><a href="#">Comments</a></li>
+        
+    </nav>
+    <div class="endpoint">
+        <h2>GET / api</h2>
+        <div class="description">
+          <p>Returns a JSON object with a list of all available endpoints and their descriptions.</p>
+        </div>
+    </div>
+        
+        <div class="endpoint">
+            <h2>GET / api / topics</h2>
+            <div class="description"  data-hover="exampleResponse: 
+            topics: [{ slug: football, description: Footie! }]"
+          >
+                <p>Returns an array of all topics with their descriptions.</p>
+            </div>
+           
+        </div>
+      
+      <div class="endpoint">
+        <h2>GET / api / articles</h2>
+        <div class="description">
+          <p>Returns an array of articles with summary info: title, author, votes, etc.</p>
+        </div>
+      </div>
+      
+      <div class="endpoint">
+        <h2><span class="method">GET</span> <span class="path">/api/articles/:article_id</span></h2>
+        <div class="description">
+          <p>Returns detailed info about a specific article.</p>
+        </div>
+      </div>
+      
+      <div class="endpoint">
+        <h2><span class="method">PATCH</span> <span class="path">/api/articles/:article_id</span></h2>
+        <div class="description">
+          <p>Updates the votes of an article based on "inc_votes" in JSON body.</p>
+          <pre>{
+        "inc_votes": number
+      }</pre>
+        </div>
+      </div>
+      
+      <div class="endpoint">
+        <h2><span class="method">GET</span> <span class="path">/api/articles/:article_id/comments</span></h2>
+        <div class="description">
+          <p>Lists all comments for an article, ordered by most recent.</p>
+        </div>
+      </div>
+</body>
+</html>

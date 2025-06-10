@@ -15,7 +15,7 @@ const { selectUsers } = require("./controllers/select_user_controllers.js");
 const { selectApi } = require("./controllers/select_api_controllers.js");
 
 app.use(express.json());
-
+app.use(express.static("public"));
 app.use((err, req, res, next) => {
   const status = err.status || 500;
   res.status(status).json({ error: err.msg || "Internal Server Error" });
