@@ -430,6 +430,7 @@ describe("seed", () => {
             AND column_name = 'article_id';`
         )
         .then(({ rows: [column] }) => {
+          console.log(column, "this is not working");
           expect(column.column_name).toBe("article_id");
           expect(column.data_type).toBe("integer");
         });

@@ -20,6 +20,7 @@
         <li><a href="#">Comments</a></li>
         
     </nav>
+    <main>
     <div class="endpoint">
         <h2>GET / api</h2>
         <div class="description">
@@ -29,10 +30,12 @@
         
         <div class="endpoint">
             <h2>GET / api / topics</h2>
-            <div class="description"  data-hover="exampleResponse: 
-            topics: [{ slug: football, description: Footie! }]"
-          >
+            <div class="description">
                 <p>Returns an array of all topics with their descriptions.</p>
+            </div>
+            <div class="example">
+                <p>exampleResponse: 
+                    topics: [ slug: football, description: Footie! ]</p>
             </div>
            
         </div>
@@ -40,7 +43,9 @@
       <div class="endpoint">
         <h2>GET / api / articles</h2>
         <div class="description">
+            <div>
           <p>Returns an array of articles with summary info: title, author, votes, etc.</p>
+        </div>
         </div>
       </div>
       
@@ -67,5 +72,6 @@
           <p>Lists all comments for an article, ordered by most recent.</p>
         </div>
       </div>
+    </main>
 </body>
 </html>
