@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("./db/connection.js");
+const cors = require("cors");
 
 const {
   selectCommentById,
@@ -14,6 +15,7 @@ const { selectTopics } = require("./controllers/select_topic_controllers.js");
 const { selectUsers } = require("./controllers/select_user_controllers.js");
 const { selectApi } = require("./controllers/select_api_controllers.js");
 
+app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 app.use((err, req, res, next) => {
