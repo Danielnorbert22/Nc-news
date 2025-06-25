@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import SearchBar from './SearchBar';
 
-function Header({ onSearch }) {
+function Header() {
   return (
     <>
     <header>
       <h1>My Article Search</h1>
       </header>
-      
-      </>
+    </>
   );
 }
 
