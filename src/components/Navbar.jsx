@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-function SearchBar({ onSearch }) {
-  const [selectedItem, setSelectedItem] = useState('slide-item-1'); // Default to Home
+function NavBar() {
+  const [selectedItem, setSelectedItem] = useState('slide-item-1'); 
 
   const handleRadioChange = (e) => {
     setSelectedItem(e.target.id);
@@ -61,8 +61,8 @@ function SearchBar({ onSearch }) {
         onChange={handleRadioChange}
       />
       <label htmlFor="slide-item-4">
-        <p className="icon">+</p>
-        <span>Add  An Article</span>
+        <p className="icon">A</p>
+        <span>Articles</span>
       </label>
       
       <div className="clear"></div>
@@ -75,4 +75,4 @@ function SearchBar({ onSearch }) {
   );
 }
 
-export default SearchBar;
+export default NavBar;

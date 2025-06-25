@@ -2,9 +2,9 @@
 import React from "react";
 import Header from "./components/Header"
 import "./app.css"
-import SearchBar from "./components/Searchbar";
-import Content from "./components/Content";
-import { BrowserRouter, Routes } from "react-router-dom";
+import NavBar from "./components/Navbar";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
@@ -17,11 +17,12 @@ function App() {
       <Header />
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Home />}/>
           </Routes>
       </BrowserRouter>
-          <Content />
+         
       <footer>
-        <SearchBar />
+        <NavBar />
       </footer>
     </>
   );
