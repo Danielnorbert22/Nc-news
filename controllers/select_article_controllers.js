@@ -6,6 +6,7 @@ const db = require("../db/connection");
 const selectArticles = (request, response, next) => {
   fetchArticles().then((articles) => {
     response.status(200).send({ articles });
+    console.log("select article:", articles);
   });
 };
 

@@ -10,7 +10,6 @@ const selectCommentById = (request, response, next) => {
         return next({ status: 404, msg: "Article not found" });
       }
       response.status(200).send({ comments: rows });
-      console.log("Fetched comment:", rows);
     })
     .catch(next);
 };

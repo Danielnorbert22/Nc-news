@@ -50,6 +50,7 @@ describe("GET /api/articles", () => {
       .get("/api/articles")
       .expect(200)
       .then((response) => {
+        console.log(response);
         expect(typeof response.body).toBe("object");
         expect(Array.isArray(response.body.articles)).toBe(true);
       });
@@ -96,14 +97,13 @@ describe("GET /api/articles/:articles_id/comments", () => {
   });
 });
 
-describe.only("PATCH /api/articles/:article_id", () => {
+describe("PATCH /api/articles/:article_id", () => {
   test("200: increment votes by positive number", () => {
     return request(app)
       .patch("/api/articles/3")
       .send({ inc_votes: 10 })
       .expect(200)
       .then((response) => {
-        console.log("Response Body:", response.body);
         expect(response.body.article).toHaveProperty("votes");
         expect(response.body.article.votes).toEqual(10);
       });

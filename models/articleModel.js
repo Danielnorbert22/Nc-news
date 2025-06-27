@@ -11,8 +11,9 @@ const fetchArticleById = (id) => {
 const fetchArticles = () => {
   const sqlString = `
     SELECT 
-    articles.title, 
-    articles.topic, 
+    articles.*, 
+    articles.topic,
+    articles.body,
     articles.author, 
     articles.created_at, 
     articles.votes,  
