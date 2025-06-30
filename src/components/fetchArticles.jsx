@@ -25,7 +25,7 @@ function fetchArticles() {
         setLoading(false);
       });
   }, []);
-
+  
   return { articles, loading, error };
 }
 

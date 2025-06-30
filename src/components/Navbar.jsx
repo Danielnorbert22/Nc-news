@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 function NavBar() {
   const [selectedItem, setSelectedItem] = useState('slide-item-1'); 
 
@@ -11,6 +11,7 @@ function NavBar() {
     <nav className="slidemenu">
       
       <input
+        href="http://localhost:5173/articles"
         type="radio"
         name="slideItem"
         id="slide-item-1"
@@ -19,10 +20,10 @@ function NavBar() {
         onChange={handleRadioChange}
       />
       <label htmlFor="slide-item-1">
-        <p className="icon">🏠</p>
+        <a  href="/" className="icon">🏠</a>
         <span>Home</span>
       </label>
-      
+    
      
       <input
         type="radio"
@@ -33,7 +34,7 @@ function NavBar() {
         onChange={handleRadioChange}
       />
       <label htmlFor="slide-item-2">
-        <p className="icon">📝</p>
+        <a href="/topics" className="icon">📝</a>
         <span>Topics</span>
       </label>
       
@@ -47,9 +48,11 @@ function NavBar() {
         onChange={handleRadioChange}
       />
       <label htmlFor="slide-item-3">
-        <p className="icon">👤</p>
-        <span>Users</span>
-      </label>
+     
+        <a href="/users" className="icon">👤</a>
+          <span>Users</span>
+       
+        </label>
 
             
             <input
@@ -60,14 +63,16 @@ function NavBar() {
         checked={selectedItem === 'slide-item-4'}
         onChange={handleRadioChange}
       />
+      
       <label htmlFor="slide-item-4">
-        <p className="icon">A</p>
+        <a href="/search-articles"className="icon">A</a>
+       
         <span>Articles</span>
       </label>
       
       <div className="clear"></div>
       
-      {/* Slider Bar */}
+     
       <div className="slider">
         <div className="bar"></div>
       </div>

@@ -33,7 +33,9 @@ function Content() {
           <div className="article">
             <h4>{articles.articles[0].title }</h4>
             <p>{articles.articles[0].created_at}</p>
-            <span><p>Votes: { articles.articles[0].votes}</p><button>Vote Up!</button></span>
+            
+            <h3>{articles.articles[0].comment_count} Comments</h3>
+            <button>View Comments</button>
           </div>
         </div>
 
@@ -51,7 +53,8 @@ function Content() {
           <div className="article">
           <h4>{articles.articles[1].title }</h4>
             <p>{articles.articles[1].created_at}</p>
-            <span><p>Votes: { articles.articles[1].votes}</p><button>Vote Up!</button></span>
+            <h3>{articles.articles[1].comment_count} Comments</h3>
+            <button>View Comments</button>
           </div>
         </div>
 
@@ -70,7 +73,8 @@ function Content() {
             <h4>{articles.articles[2].title}</h4>
             <h5>{articles.articles[2].body }</h5>
             <p>{articles.articles[2].created_at}</p>
-            <span><p>Votes: { articles.articles[2].votes}</p><button>Vote Up!</button></span>
+            <h3>{articles.articles[2].comment_count} Comments</h3>
+            <button>View Comments</button>
           </div>
         </div>
 
@@ -89,7 +93,8 @@ function Content() {
         <h4>{articles.articles[3].title}</h4>
             <h5>{articles.articles[3].body }</h5>
             <p>{articles.articles[3].created_at}</p>
-            <span><p>Votes: { articles.articles[3].votes}</p><button>Vote Up!</button></span>
+            <h3>{articles.articles[3].comment_count} Comments</h3>
+            <button>View Comments</button>
         </div>
               </div>
               <div className="div5 eachdiv">
@@ -106,7 +111,8 @@ function Content() {
           <h4>{articles.articles[4].title}</h4>
         <h5>{articles.articles[4].body }</h5>
             <p>{articles.articles[4].created_at}</p>
-            <span><p>Votes: { articles.articles[4].votes}</p><button>Vote Up!</button></span>
+            <h3>{articles.articles[4].comment_count} Comments</h3>
+            <button>View Comments</button>
          </div>
                     
         
