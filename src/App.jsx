@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Users from "./components/Users"
 import ArticlesPage from "./components/articlesPage";
 import Article from "./components/Article"
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 
@@ -15,7 +16,7 @@ import Article from "./components/Article"
 function App() {
   return (
     <>
-      <Header />
+      <NavBar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,9 +26,9 @@ function App() {
           </Routes>
       </BrowserRouter>
          
-      <footer>
-        <NavBar />
-      </footer>
+    
+        
+      
     </>
   );
 }

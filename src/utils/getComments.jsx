@@ -1,4 +1,4 @@
-export function getArticleById(id) {
+export function getComments(id) {
     return fetch(
       `https://daniels-news-articles.onrender.com/api/articles/${id}/comments`
     ).then((res) => {

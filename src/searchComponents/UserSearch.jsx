@@ -35,7 +35,7 @@ const UserSearch = ({ setSearchTerm }) => {
             <form onSubmit={handleSubmit}>
                 <label>
                     Enter ID: 
-                    <input type="text" onChange={handleChange} value={searchInput} />
+                    <input className="form-control"type="text" onChange={handleChange} value={searchInput} />
                 </label>
                 <button type="submit">Search</button>
             </form>
