@@ -26,7 +26,7 @@ function fetchArticles() {
         setLoading(false);
       });
   }, []);
-  console.log({articles})
+ 
   return { articles, loading, error };
 }
 

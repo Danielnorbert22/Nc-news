@@ -26,7 +26,7 @@ const SoloArticle = (article) => {
                 <h5>{ body}</h5>
             <p>{readableDate}</p>
                 <div className="comment-expander">
-                    <p>{articles.comment_count} comments</p>
+                    <p>{articles[0].comment_count} comments</p>
             <button className="comms">View Comments</button ><button>Add Comment</button>
             
                 </div>
