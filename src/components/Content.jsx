@@ -3,7 +3,7 @@ import fetchArticles from "./fetchArticles";
 import Loading from "./Loading";
 function Content() {
   const { articles, loading, error } = fetchArticles();
-
+// const {body} = 
   if (loading) {
     return <Loading />
   }

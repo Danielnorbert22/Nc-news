@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import UserList from "./UserList";
+import UserList from "./ArticleList";
 import UserSearch from  "./UserSearch"
 import { getArticleById } from "../utils/getArticleById";
 

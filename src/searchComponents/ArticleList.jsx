@@ -3,7 +3,7 @@ import { getArticleById } from "../utils/getArticleById";
 import SoloArticle from "../components/SoloArticle";
 import Loading from "../components/Loading";
 
-function UserList({ searchTerm }) {
+function ArticleList({ searchTerm }) {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -40,4 +40,4 @@ function UserList({ searchTerm }) {
   );
 }
 
-export default UserList;
+export default ArticleList;

@@ -1,5 +1,5 @@
 import React from "react";
-import getUserByUsername from "../utils/getUsers";
+import getComments from "../utils/getComments";
 import Loading from "./Loading"; 
 import CommentCard from "./CommentCard"; 
 

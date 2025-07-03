@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const API = 'https://daniels-news-articles.onrender.com/api/articles';
 
 function fetchArticles() {
+
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,7 +16,7 @@ function fetchArticles() {
         }
         return response.json();
       })
-        .then((data) => {
+      .then((data) => {
            
         setArticles(data)
         setLoading(false);
@@ -25,7 +26,7 @@ function fetchArticles() {
         setLoading(false);
       });
   }, []);
-  
+  console.log({articles})
   return { articles, loading, error };
 }
 

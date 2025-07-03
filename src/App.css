@@ -446,8 +446,8 @@ section input {
 
 .search-bar{
  height: auto;
-
-  border: solid red 1px;
+color: #18202D;
+text-align: center;
 }
 
 .search-bar button{
@@ -508,10 +508,35 @@ h1 {
 main {
   margin-top: 100px; /* Space for fixed header */
   padding: 20px;
-  background: #edf2f8;
+  background: #19212b;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
+div.row{
+  margin: 15px;
+  border: solid rgb(247, 242, 242) 5px;
+  padding: 0;
+  height: 180px;
+  width: 180px;
+}
+
+div.container{
+  padding: 0;
+width: 210px;
+  background-color: #18202D;
+}
+
+div.card{
+  margin-bottom: 100px;
+}
+p.handle{
+  color: #dce7f1;
+}
+
+img{
+  height: 80px;
+  width: 80px !important
+}

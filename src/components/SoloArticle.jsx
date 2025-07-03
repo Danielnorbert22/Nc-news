@@ -1,12 +1,14 @@
 import React from "react";
+import fetchArticles from "./fetchArticles";
 
-const SoloArticle = (articles) => {
-    const { title, topic, created_at, author, votes, comment_count, body, article_img_url, id } = articles.article.article 
+const SoloArticle = (article) => {
+    const { title, topic, created_at, author, votes, body, article_img_url, id } = article.article.article
     const image = article_img_url
     const isoString = created_at
     const date = new Date(isoString);
-    const readableDate = date.toLocaleString(); 
-    console.log(articles.article.article )
+    const readableDate = date.toLocaleString();
+    const { articles} = fetchArticles(id);
+    console.log(articles)
     return (
         <div className="user-card">
             <div >
@@ -24,7 +26,7 @@ const SoloArticle = (articles) => {
                 <h5>{ body}</h5>
             <p>{readableDate}</p>
                 <div className="comment-expander">
-                    <p>{comment_count} comments</p>
+                    <p>{articles.comment_count} comments</p>
             <button className="comms">View Comments</button ><button>Add Comment</button>
             
                 </div>
