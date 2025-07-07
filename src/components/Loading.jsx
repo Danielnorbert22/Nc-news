@@ -9,7 +9,7 @@ const Loading = () => (
       strokeLinejoin="round"
       strokeWidth="6"
     >
-      {/* left line */}
+      
       <path d="M 21 40 V 59">
         <animateTransform
           attributeName="transform"
@@ -21,7 +21,7 @@ const Loading = () => (
         />
       </path>
 
-      {/* right line */}
+    
       <path d="M 79 40 V 59">
         <animateTransform
           attributeName="transform"
@@ -33,7 +33,7 @@ const Loading = () => (
         />
       </path>
 
-      {/* top line */}
+      
       <path d="M 50 21 V 40">
         <animate
           attributeName="d"
@@ -43,7 +43,7 @@ const Loading = () => (
         />
       </path>
 
-      {/* bottom line */}
+     
       <path d="M 50 60 V 79">
         <animate
           attributeName="d"
@@ -53,7 +53,7 @@ const Loading = () => (
         />
       </path>
 
-      {/* top box */}
+      
       <path d="M 50 21 L 79 40 L 50 60 L 21 40 Z">
         <animate
           attributeName="stroke"
@@ -63,10 +63,10 @@ const Loading = () => (
         />
       </path>
 
-      {/* mid box */}
+      
       <path d="M 50 40 L 79 59 L 50 79 L 21 59 Z" />
 
-      {/* bottom box */}
+      
       <path d="M 50 59 L 79 78 L 50 98 L 21 78 Z">
         <animate
           attributeName="stroke"
@@ -76,7 +76,7 @@ const Loading = () => (
         />
       </path>
 
-      {/* translation animate */}
+      
       <animateTransform
         attributeName="transform"
         attributeType="XML"

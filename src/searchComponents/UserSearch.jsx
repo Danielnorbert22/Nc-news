@@ -33,13 +33,13 @@ const UserSearch = ({ setSearchTerm }) => {
         <section className="search-bar">
             <h2>Search Articles</h2>
             <form onSubmit={handleSubmit}>
-                {/* <label>
+                <label>
                     Enter ID: 
                     <input className="form-control"type="text" onChange={handleChange} value={searchInput} />
                 </label>
-                <button type="submit">Search</button> */}
+                <button type="submit">Search</button>
             </form>
-             <button onClick={handlePrevUser} disabled ={currentId < 2}>Previous Article</button><button onClick={handleNextUser} disabled ={currentId > 50}>Next Article</button>
+             <button onClick={handlePrevUser} disabled ={currentId < 1}>Previous Article</button><button onClick={handleNextUser} disabled ={currentId > 50}>Next Article</button>
         </section>
     )
 }

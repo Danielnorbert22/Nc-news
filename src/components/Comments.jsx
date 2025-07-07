@@ -1,7 +1,7 @@
 import React from "react";
 import getComments from "../utils/getComments";
 import Loading from "./Loading"; 
-import CommentCard from "./CommentCard"; 
+import CommentCard from "./CommentsDropdown"; 
 
 
 

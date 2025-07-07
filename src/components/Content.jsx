@@ -33,6 +33,7 @@ function Content() {
           <div className="article">
             <h4>{articles.articles[0].title }</h4>
             <p>{articles.articles[0].created_at}</p>
+            <a href="/search-articles/0">Continue Reading</a>
             
             <h3>{articles.articles[0].comment_count} Comments</h3>
             <button>View Comments</button>
